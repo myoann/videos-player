@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 
-import WakaWakaVideo from '../assets/videos/waka_waka.mp4';
 import WakaWakaPoster from '../assets/images/waka_waka.png';
 import VideoPlayer from './VideoPlayer';
 
@@ -32,7 +31,7 @@ function App() {
 
       <div className='categories'>
         {categories.map(({ name, image }) =>
-          <div className='category'>
+          <div className='category fadeIn'>
             <img src={image} className='categoryImage' />
             <span className='categoryName'>{name}</span>
           </div>
