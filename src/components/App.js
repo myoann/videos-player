@@ -3,6 +3,7 @@ import './App.css';
 
 import WakaWakaPoster from '../assets/images/waka_waka.png';
 import VideoPlayer from './VideoPlayer';
+import Categories from './Categories';
 
 const categories = [
   {
@@ -26,20 +27,9 @@ const categories = [
 function App() {
   return (
     <div className="App">
-    <header className="App-header">
-      {/*<VideoPlayer poster={WakaWakaPoster} video={WakaWakaVideo} />*/}
-
-      <div className='categories'>
-        {categories.map(({ name, image }) =>
-          <div className='category fadeIn'>
-            <img src={image} className='categoryImage' />
-            <span className='categoryName'>{name}</span>
-          </div>
-        )}
-      </div>
-    </header>
-
-
+      <header className="App-header">
+        <Categories categories={categories} />
+      </header>
     </div>
   );
 }
