@@ -1,3 +1,8 @@
+.selectCategory {
+  text-align: left;
+  margin: 2rem;
+}
+
 .categories {
   width: 75%;
   display: flex;
@@ -5,14 +10,25 @@
   align-content: center;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .categories {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .category {
   display: flex;
   flex-direction: column;
   font-size: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin: 0 1rem 2.5rem 1rem;
   width: 15rem;
   transition: all .2s ease-in-out;
 }

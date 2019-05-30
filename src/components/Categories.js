@@ -2,34 +2,45 @@ import React, { Component } from 'react';
 import './Categories.css';
 
 import WakaWakaPoster from '../assets/images/waka_waka.png';
-import VideoPlayer from './VideoPlayer';
+import CategoryDetails from './CategoryDetails';
 
 export class Categories extends Component {
-  state = { elemHovered: null }
+  state = { categoryHovered: null, categorySelected: null }
 
-  onHover = (onHover) => {
-    this.setState({ elemHovered: onHover })
+  onHover = (key) => {
+    this.setState({ categoryHovered: key })
   }
 
+  onSelectCategory = (key) => {
+    this.setState({ categorySelected: key })
+  }
+
+  renderCategories = (categories, categoryHovered) =>
+    <div>
+      <div className='selectCategory'>Sélectionner une catégorie</div>
+      <div className='categories'>
+        {categories.map(({ name, image }, key) =>
+          <div
+            className={`category fadeIn ${categoryHovered && categoryHovered !== key ? 'inactive' : ''}`}
+            onMouseOver={() => this.onHover(key)}
+            onMouseOut={() => this.onHover()}
+            onClick={() => this.onSelectCategory(key)}
+          >
+            <img src={image} alt={`categorie ${name}`} className='categoryImage' />
+            <span className='categoryName'>{name}</span>
+          </div>
+        )}
+      </div>
+    </div>
+    
   render = () => {
     const { categories } = this.props;
-    const { elemHovered } = this.state;
+    const { categoryHovered, categorySelected } = this.state;
+    console.log("category hovered ", categoryHovered)
+    console.log("category selected ", categorySelected)
 
-    console.log(elemHovered)
-    console.log(categories)
     return (
-        <div className='categories'>
-          {categories.map(({ name, image }, key) =>
-            <div
-              className={`category fadeIn ${elemHovered && elemHovered !== key ? 'inactive' : ''}`}
-              onMouseOver={() => this.onHover(key)}
-              onMouseOut={() => this.onHover()}
-            >
-              <img src={image} className='categoryImage' />
-              <span className='categoryName'>{name}</span>
-            </div>
-          )}
-        </div>
+       categorySelected ? <CategoryDetails category={categories[categorySelected] }/> : this.renderCategories(categories, categoryHovered)
     );
   }
 }
