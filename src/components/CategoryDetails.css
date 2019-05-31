@@ -3,6 +3,7 @@
     width: 75%;
     align-items: center;
     text-align: left;
+    position: relative;
 }
 
 .categoryDetailsImage {
@@ -10,11 +11,26 @@
 }
 
 .categoryElements {
-    height: auto;
-    width: 25rem;
-    margin: auto;
-    font-size: 16px;
+      left: 50%;
+  position: absolute;
+  animation-duration: 1s;
+  animation-name: slidein;
+  height: auto;
+  width: 25rem;
+  margin: auto;
+  font-size: 16px;
 }
+@keyframes slidein {
+  from {
+    left: 100%;
+    opacity: 0;
+  }
+  to {
+    left: 50%;
+    opacity: 1;
+  }
+}
+
 
 .categoryElements .categoryElement {
     cursor: pointer;
@@ -25,7 +41,7 @@
     border-bottom: 1px solid gray;
     padding: 0.3em 0;
 }
-      
+
 .categoryElements .categoryElement:last-child {
     border-bottom: 0px;
 }
@@ -35,5 +51,5 @@
 }
 
 .categoryElements .categoryElementName {
-    
+
 }

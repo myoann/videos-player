@@ -4,7 +4,6 @@
 }
 
 .categories {
-  width: 75%;
   display: flex;
   align-items: center;
   align-content: center;
@@ -13,7 +12,7 @@
   justify-content: flex-start;
 }
 
-/* 
+/*
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
 */
@@ -27,9 +26,9 @@
 .category {
   display: flex;
   flex-direction: column;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0 1rem 2.5rem 1rem;
-  width: 15rem;
+  width: 10rem;
   transition: all .2s ease-in-out;
 }
 .category:hover {
@@ -85,8 +84,8 @@
 }
 
 .categoryImage {
-  width: 15rem;
-  height: 15rem;
+  width: 10rem;
+  height: 10rem;
   margin-bottom: 1rem;
   border: 1px solid white;
   border-radius: 50%;

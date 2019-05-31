@@ -32,7 +32,7 @@ export class Categories extends Component {
         )}
       </div>
     </div>
-    
+
   render = () => {
     const { categories } = this.props;
     const { categoryHovered, categorySelected } = this.state;
@@ -40,7 +40,9 @@ export class Categories extends Component {
     console.log("category selected ", categorySelected)
 
     return (
-       categorySelected ? <CategoryDetails category={categories[categorySelected] }/> : this.renderCategories(categories, categoryHovered)
+       categorySelected ?
+        <CategoryDetails category={categories[categorySelected] }/> :
+        this.renderCategories(categories, categoryHovered)
     );
   }
 }
