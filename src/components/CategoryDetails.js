@@ -9,10 +9,12 @@ export class CategoryDetails extends Component {
     console.log("category details ", name, image)
 
     return (
-        <div className='categoryDetails'>
-          <img src={image} alt={`categorie ${name}`} className='categoryDetailsImage' />
+        <div className='categoryDetails' >
+          <span className='categoryDetailsImage'>
+            <img src={image} alt={`categorie ${name}`}  />
+          </span>
           <span className='categoryElements'>
-                {elems.map(({name, duration}) => 
+                {elems.map(({name, duration}) =>
                     <div className='categoryElement'>
                         <span className='categoryElementName'>{name}</span>
                         <span className='categoryElementDuration'>{duration}</span>

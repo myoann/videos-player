@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Categories.css';
 
-import WakaWakaPoster from '../assets/images/waka_waka.png';
 import CategoryDetails from './CategoryDetails';
 
 export class Categories extends Component {
@@ -21,12 +20,12 @@ export class Categories extends Component {
       <div className='categories'>
         {categories.map(({ name, image }, key) =>
           <div
-            className={`category fadeIn ${categoryHovered && categoryHovered !== key ? 'inactive' : ''}`}
+            className={`category fadeIn ${categoryHovered !== null && categoryHovered !== key ? 'inactive' : ''}`}
             onMouseOver={() => this.onHover(key)}
             onMouseOut={() => this.onHover()}
             onClick={() => this.onSelectCategory(key)}
           >
-            <img src={image} alt={`categorie ${name}`} className='categoryImage' />
+            <span className='categoryImage' ><img src={image} alt={`categorie ${name}`}/></span>
             <span className='categoryName'>{name}</span>
           </div>
         )}

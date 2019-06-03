@@ -1,7 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import WakaWakaPoster from '../assets/images/waka_waka.png';
+import Category1Poster from '../assets/images/category_1.jpg';
+import Category2Poster from '../assets/images/category_2.jpg';
+import Category3Poster from '../assets/images/category_3.jpg';
+import Category4Poster from '../assets/images/category_4.jpg';
+
 import VideoPlayer from './VideoPlayer';
 import Categories from './Categories';
 
@@ -35,22 +39,22 @@ const elems = [
 const categories = [
   {
     name: 'Alpha',
-    image: WakaWakaPoster,
+    image: Category1Poster,
     elems
   },
   {
     name: 'Beta',
-    image: WakaWakaPoster,
+    image: Category2Poster,
     elems
   },
   {
     name: 'Gamma',
-    image: WakaWakaPoster,
+    image: Category3Poster,
     elems
   },
   {
     name: 'Epsilon',
-    image: WakaWakaPoster,
+    image: Category4Poster,
     elems
   },
 ];

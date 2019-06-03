@@ -1,32 +1,49 @@
 .categoryDetails {
     display: flex;
-    width: 75%;
+    width: 85%;
     align-items: center;
     text-align: left;
     position: relative;
 }
 
 .categoryDetailsImage {
-    width: 20rem;
+  right: 55%;
+  position: absolute;
+  width: 30rem;
+  animation-duration: 1s;
+  animation-name: slideinfromleft;
+}
+@keyframes slideinfromleft {
+  from {
+    right: 100%;
+    opacity: 0;
+  }
+  to {
+    right: 55%;
+    opacity: 1;
+  }
+}
+.categoryDetailsImage img {
+  width: 100%;
 }
 
 .categoryElements {
-      left: 50%;
+  left: 55%;
   position: absolute;
   animation-duration: 1s;
-  animation-name: slidein;
+  animation-name: slideinfromright;
   height: auto;
   width: 25rem;
   margin: auto;
-  font-size: 16px;
+  font-size: 1.5rem;
 }
-@keyframes slidein {
+@keyframes slideinfromright {
   from {
     left: 100%;
     opacity: 0;
   }
   to {
-    left: 50%;
+    left: 55%;
     opacity: 1;
   }
 }
@@ -38,8 +55,8 @@
 }
 
 .categoryElements .categoryElement {
-    border-bottom: 1px solid gray;
-    padding: 0.3em 0;
+    //border-bottom: 1px solid gray;
+    padding: 0.75em 0;
 }
 
 .categoryElements .categoryElement:last-child {
@@ -48,6 +65,7 @@
 
 .categoryElements .categoryElementDuration {
     float: right;
+    opacity: 0.75;
 }
 
 .categoryElements .categoryElementName {
