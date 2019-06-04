@@ -1,5 +1,6 @@
 .categoryDetails {
     display: flex;
+    flex-direction: column;
     width: 85%;
     height: 100vh;
     align-items: center;
@@ -9,16 +10,13 @@
 
 .returnToCategoriesButton {
   z-index: 2;
-  position: absolute;
   left: 7rem;
   top: 5rem;
   cursor: pointer;
 }
 
 .categoryDetailsImage {
-  right: 55%;
-  position: absolute;
-  width: 30rem;
+  width: 100%;
   animation-duration: 1s;
   animation-name: slideinfromleft;
 }

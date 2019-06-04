@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import './CategoryDetails.css';
+import './CategoryDetails2.css';
 import Categories from './Categories';
 
 const backgroundImageStyle = image => ({
@@ -29,6 +29,7 @@ export class CategoryDetails extends Component {
           <Fragment>
             <span style={backgroundImageStyle(image)} />
 
+            <span className='title'>{name}</span>
             <span className='returnToCategoriesButton' onClick={() => this.setState({ isReturnClicked: !isReturnClicked })}>Retour</span>
 
             <span className='categoryDetails'>

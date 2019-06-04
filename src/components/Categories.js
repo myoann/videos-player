@@ -1,47 +1,35 @@
 import React, { Component } from 'react';
 import './Categories.css';
 
-import CategoryDetails from './CategoryDetails';
+import CategoryDetails from './CategoryDetails2';
+import CategoryBubble from './CategoryBubble';
+import { categories } from '../assets/categories';
 
 export class Categories extends Component {
-  state = { categoryHovered: null, categorySelected: null }
-
-  onHover = (key) => {
-    this.setState({ categoryHovered: key })
+  state= {
+    categorySelected: null
   }
 
-  onSelectCategory = (key) => {
-    this.setState({ categorySelected: key })
-  }
-
-  renderCategories = (categories, categoryHovered) =>
+onSelectCategory = key =>  {
+  this.setState({
+    categorySelected: key
+  })
+}
+  renderCategories = (categories) =>
     <div>
       <div className='selectCategory'>Sélectionner une catégorie</div>
       <div className='categories'>
         {categories.map(({ name, image }, key) =>
-          <div
-            className={`category fadeIn ${categoryHovered !== null && categoryHovered !== key ? 'inactive' : ''}`}
-            onMouseOver={() => this.onHover(key)}
-            onMouseOut={() => this.onHover()}
-            onClick={() => this.onSelectCategory(key)}
-          >
-            <span className='categoryImage' ><img src={image} alt={`categorie ${name}`}/></span>
-            <span className='categoryName'>{name}</span>
-          </div>
+          <CategoryBubble name={name} image={image} categoryKey={key} onSelectCategory={this.onSelectCategory}/>
         )}
       </div>
     </div>
 
   render = () => {
-    const { categories } = this.props;
-    const { categoryHovered, categorySelected } = this.state;
-    console.log("category hovered ", categoryHovered)
-    console.log("category selected ", categorySelected)
-
     return (
-       categorySelected ?
-        <CategoryDetails category={categories[categorySelected] }/> :
-        this.renderCategories(categories, categoryHovered)
+       this.state.categorySelected !== null ?
+        <CategoryDetails category={categories[this.state.categorySelected]}/> :
+        this.renderCategories(categories)
     );
   }
 }
