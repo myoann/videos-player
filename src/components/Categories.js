@@ -10,11 +10,11 @@ export class Categories extends Component {
     categorySelected: null
   }
 
-onSelectCategory = key =>  {
-  this.setState({
-    categorySelected: key
-  })
-}
+  onSelectCategory = key =>  {
+    this.setState({
+      categorySelected: key
+    })
+  }
   renderCategories = (categories) =>
     <div>
       <div className='selectCategory'>Sélectionner une catégorie</div>
