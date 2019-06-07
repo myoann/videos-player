@@ -36,8 +36,8 @@ export class CategoryDetails extends Component {
                 <img src={image} alt={`categorie ${name}`}  />
               </span>
               <span className='categoryElements'>
-                    {elems.map(({name, duration}) =>
-                        <div className='categoryElement'>
+                    {elems.map(({name, duration}, key) =>
+                        <div className='categoryElement' key={key}>
                             <span className='categoryElementName'>{name}</span>
                             <span className='categoryElementDuration'>{duration}</span>
                         </div>

@@ -15,12 +15,13 @@ export class Categories extends Component {
       categorySelected: key
     })
   }
+
   renderCategories = (categories) =>
     <div>
       <div className='selectCategory'>Sélectionner une catégorie</div>
       <div className='categories'>
         {categories.map(({ name, image }, key) =>
-          <CategoryBubble name={name} image={image} categoryKey={key} onSelectCategory={this.onSelectCategory}/>
+          <CategoryBubble name={name} image={image} key={key} categoryKey={key} onSelectCategory={this.onSelectCategory}/>
         )}
       </div>
     </div>
