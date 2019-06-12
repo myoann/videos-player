@@ -2,49 +2,50 @@ import React, { Component, Fragment } from 'react';
 
 import './CategoryDetails.css';
 import Categories from './Categories';
-
-const backgroundImageStyle = image => ({
-  width: '100vw',
-  height: '100vh',
-  position: 'absolute',
-  'background-image': `url(${image})`,
-  'background-position': 'center',
-  'background-repeat': 'no-repeat',
-  'background-size': 'cover',
-  filter: 'blur(30px) grayscale(0.5)',
-})
+import VideoPlayer from './VideoPlayer';
 
 export class CategoryDetails extends Component {
   state = {
     isReturnClicked: false,
+    elementKeyClicked: null
   }
 
+  handleClick = key => { this.setState({ elementKeyClicked: key }); }
+
   render = () => {
-    const { category: { name, image, elems } } = this.props;
-    const { isReturnClicked } = this.state;
+    const { category } = this.props;
+    const { name, image, elems } =  category || {};
+    const { isReturnClicked, elementKeyClicked } = this.state;
 
     return (
         isReturnClicked ?
           <Categories /> :
-          <Fragment>
-            <span style={backgroundImageStyle(image)} />
+          elementKeyClicked !== null ?
+            <VideoPlayer
+              category={category}
+              name={elems[elementKeyClicked].name}
+              poster={elems[elementKeyClicked].poster}
+              video={elems[elementKeyClicked].video}
+            /> :
+            <Fragment>
+              <div className='categoryBackground'>
+                <img src={image} alt='background' />
+                <span className='returnToCategoriesButton' onClick={() => this.setState({ isReturnClicked: !isReturnClicked })}>&#x2190; Retour</span>
+                <span className='categoryTitle'>{name}</span>
+              </div>
 
-            <span className='returnToCategoriesButton' onClick={() => this.setState({ isReturnClicked: !isReturnClicked })}>Retour</span>
 
-            <span className='categoryDetails'>
-              <span className='categoryDetailsImage'>
-                <img src={image} alt={`categorie ${name}`}  />
+              <span className='categoryDetails'>
+                <span className='categoryElements'>
+                      {elems.map(({name, duration}, key) =>
+                          <div key={key} className='categoryElement' onClick={() => this.handleClick(key)}>
+                              <span className='categoryElementName'>{name}</span>
+                              <span className='categoryElementDuration'>{duration}</span>
+                          </div>
+                      )}
+                </span>
               </span>
-              <span className='categoryElements'>
-                    {elems.map(({name, duration}, key) =>
-                        <div className='categoryElement' key={key}>
-                            <span className='categoryElementName'>{name}</span>
-                            <span className='categoryElementDuration'>{duration}</span>
-                        </div>
-                    )}
-              </span>
-            </span>
-          </Fragment>
+            </Fragment>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Categories.css';
 
-import CategoryDetails from './CategoryDetails2';
+import CategoryDetails from './CategoryDetails';
 import CategoryBubble from './CategoryBubble';
 import { categories } from '../assets/categories';
 
