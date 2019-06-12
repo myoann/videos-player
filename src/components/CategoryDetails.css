@@ -99,6 +99,19 @@
     top: 1rem;
     font-size: 1.5rem;
   }
+  .categoryBackground {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+  }
+  .categoryBackground img {
+    min-height: 100%;
+    max-height: 100%;
+    width: auto;
+  }
+  .categoryTitle {
+    font-size: 5rem;
+  }
 }
 
 .categoryElement {
