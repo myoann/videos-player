@@ -12,6 +12,7 @@ export class CategoryDetails extends Component {
 
   handleClick = key => { this.setState({ elementKeyClicked: key }); }
 
+
   render = () => {
     const { category } = this.props;
     const { name, image, elems } =  category || {};
@@ -20,13 +21,6 @@ export class CategoryDetails extends Component {
     return (
         isReturnClicked ?
           <Categories /> :
-          elementKeyClicked !== null ?
-            <VideoPlayer
-              category={category}
-              name={elems[elementKeyClicked].name}
-              poster={elems[elementKeyClicked].poster}
-              video={elems[elementKeyClicked].video}
-            /> :
             <Fragment>
               <div className='categoryBackground'>
                 <img src={image} alt='background' />
@@ -45,6 +39,17 @@ export class CategoryDetails extends Component {
                       )}
                 </span>
               </span>
+
+              {elementKeyClicked !== null && (
+                <VideoPlayer
+                  handleClick={this.handleClick}
+                  category={category}
+                  name={elems[elementKeyClicked].name}
+                  poster={elems[elementKeyClicked].poster}
+                  video={elems[elementKeyClicked].video}
+                />
+              )}
+
             </Fragment>
     );
   }

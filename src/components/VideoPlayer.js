@@ -5,27 +5,31 @@ import './VideoPlayer.css';
 import CategoryDetails from './CategoryDetails';
 
 export class VideoPlayer extends Component {
-  state = { isReturnClicked: false };
+
+  state = {
+    isVideoToClose: false
+  }
+
+  handleClickElem = () =>  {
+    const { handleClick } = this.props;
+
+    this.setState({ isVideoToClose: true });
+    setTimeout(() => { handleClick(null); }, 1000);
+  }
 
   render = () => {
-    const { category, poster, name, video } = this.props;
-    const { isReturnClicked, elementKeyClicked } = this.state;
+    const { category, poster, name, video, handleClick } = this.props;
+    const { isVideoToClose } = this.state;
 
     return (
-        isReturnClicked ?
-          <CategoryDetails category={category}/> :
-          <div>
-            <div className='videoPlayerHeader'>
-              <span className='returnToCategoryButton' onClick={() => this.setState({ isReturnClicked: !isReturnClicked })}>&#x2190; Retour</span>
-              <span className='videoTitle'>{name}</span>
-            </div>
+      <div className={`${isVideoToClose && 'out'} modalContainer`}>
+        <div onClick={() => this.handleClickElem()} className="clickMe"/>
+        <video controls autoplay width="50%" poster={poster} >
+          <source src={video} type="video/mp4" />
 
-            <video controls autoplay width="100%" poster={poster}>
-              <source src={video} type="video/mp4" />
-
-              Sorry, your browser doesn't support embedded videos.
-              </video>
-          </div>
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
     );
   }
 }
