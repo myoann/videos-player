@@ -7,9 +7,7 @@
   z-index:1;
   justify-content: center;
   align-items: center;
-  background-color: #00000080;
-  transform:scaleY(.01) scaleX(0);
-  animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
 }
 .clickMe{
   position: absolute;
@@ -18,23 +16,36 @@
   z-index: 0;
 }
 
-.one {
-  /*.modal-background {
-    .modal {
-      transform:scale(0);
-      animation: zoomIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-    }
-  }*/
+.modalBackground {
+  position:fixed;
+  display:flex;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  z-index:1;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffffd9;
+  transform:scaleY(.01) scaleX(0);
+  animation:unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+.modalBackground video {
+  transform: scale(0);
+  animation: zoomIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+  box-shadow: 0px 14px 36px 2px rgba(0,0,0,0.2);
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  width: 100%;
 }
 
 .out {
   transform:scale(1);
   animation:unfoldOut 1s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-  /*.modal-background {
-    .modal {
-      animation: zoomOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-    }
-  }*/
+}
+.out video {
+  animation: zoomOut .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
 }
 
 @keyframes unfoldIn {
@@ -59,6 +70,29 @@
   100% {
     transform:scaleY(.005) scaleX(0);
   }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform:scale(1);
+  }
+  100% {
+    transform:scale(0);
+  }
+}
+
+video::-webkit-media-controls-panel {
+  background-image: linear-gradient(transparent, transparent) !important;
+  color: red;
 }
 
 .videoPlayerHeader {

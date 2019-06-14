@@ -32,6 +32,10 @@
   width: 100%;
 }
 
+.categoryBackground img + .videoActivated {
+  width: 10%;
+}
+
 .categoryTitle {
   position: absolute;
   top: 5rem;
