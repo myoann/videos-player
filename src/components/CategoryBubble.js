@@ -13,7 +13,7 @@ export default class CategoryBubble extends Component {
 
     return (
       <div
-        className={`category fadeIn ${categoryHovered !== null && categoryHovered !== categoryKey ? 'inactive' : ''}`}
+        className={`category fadeIn ${categoryHovered !== null ? categoryHovered !== categoryKey ? 'inactive' : '' : 'inactive'}`}
         onMouseOver={() => this.onHover(categoryKey)}
         onMouseOut={() => this.onHover()}
         onClick={() => onSelectCategory(categoryKey)}
