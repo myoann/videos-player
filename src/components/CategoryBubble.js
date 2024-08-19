@@ -4,20 +4,25 @@ import PropTypes from 'prop-types';
 export default class CategoryBubble extends Component {
   state = { categoryHovered: null };
 
-  onHover = (key) => {
-    this.setState({ categoryHovered: key });
+  onHover = (id) => {
+    this.setState({ categoryHovered: id });
   };
 
   render() {
-    const { categoryKey, image, name, onSelectCategory } = this.props;
+    const { categoryId, image, name, onSelectCategory } = this.props;
     const { categoryHovered } = this.state;
+
+    let hasInactiveClass = true;
+    if (categoryHovered !== null) {
+      hasInactiveClass = categoryHovered !== categoryId;
+    }
 
     return (
       <button
-        className={`category fadeIn ${categoryHovered !== null ? (categoryHovered !== categoryKey ? 'inactive' : '') : 'inactive'}`}
-        onMouseOver={() => this.onHover(categoryKey)}
+        className={`category fadeIn ${hasInactiveClass ? 'inactive' : ''}`}
+        onMouseOver={() => this.onHover(categoryId)}
         onMouseOut={() => this.onHover()}
-        onClick={() => onSelectCategory(categoryKey)}
+        onClick={() => onSelectCategory(categoryId)}
       >
         <span className="categoryImage">
           <img src={image} alt={`categorie ${name}`} />
@@ -29,7 +34,7 @@ export default class CategoryBubble extends Component {
 }
 
 CategoryBubble.propTypes = {
-  categoryKey: PropTypes.number.isRequired,
+  categoryId: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onSelectCategory: PropTypes.func.isRequired,

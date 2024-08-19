@@ -9,12 +9,16 @@ import './Categories.css';
 
 export class Categories extends Component {
   state = {
-    categorySelected: null,
+    selectedCategory: null,
   };
 
-  onSelectCategory = (key) => {
+  onSelectCategory = (id) => {
+    const categoryIndex = categories.findIndex(
+      (category) => category.id === id
+    );
+
     this.setState({
-      categorySelected: key,
+      selectedCategory: categories[categoryIndex],
     });
   };
 
@@ -22,12 +26,12 @@ export class Categories extends Component {
     <div>
       <div className="selectCategory">Sélectionner une catégorie</div>
       <div className="categories">
-        {categories.map(({ name, image }, key) => (
+        {categories.map(({ id, name, image }) => (
           <CategoryBubble
             name={name}
             image={image}
-            key={key}
-            categoryKey={key}
+            key={id}
+            categoryId={id}
             onSelectCategory={this.onSelectCategory}
           />
         ))}
@@ -36,8 +40,8 @@ export class Categories extends Component {
   );
 
   render = () => {
-    return this.state.categorySelected !== null ? (
-      <CategoryDetails category={categories[this.state.categorySelected]} />
+    return this.state.selectedCategory !== null ? (
+      <CategoryDetails category={this.state.selectedCategory} />
     ) : (
       this.renderCategories(categories)
     );

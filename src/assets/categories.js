@@ -19,38 +19,44 @@ import Elem6Video from './videos/elem_6.mp4';
 
 export const elems = [
   {
+    id: '1',
     name: 'Jean Roch',
     duration: '01:10',
     poster: Elem1Poster,
     video: Elem1Video,
   },
   {
+    id: '2',
     name: 'Jean Michel Jarre',
     duration: '10:00',
     poster: Elem2Poster,
     video: Elem2Video,
   },
   {
+    id: '3',
     name: 'Stromae',
     duration: '05:41',
     poster: Elem3Poster,
     video: Elem3Video,
   },
   {
-    name: 'Jean Roch',
-    duration: '01:10',
+    id: '4',
+    name: 'Michel Houellbecq',
+    duration: '12:42',
     poster: Elem4Poster,
     video: Elem4Video,
   },
   {
-    name: 'Jean Michel Jarre',
-    duration: '10:00',
+    id: '5',
+    name: 'Daft Punk',
+    duration: '00:10',
     poster: Elem5Poster,
     video: Elem5Video,
   },
   {
-    name: 'Stromae',
-    duration: '05:41',
+    id: '6',
+    name: 'Martin Solveig',
+    duration: '02:33',
     poster: Elem6Poster,
     video: Elem6Video,
   },
@@ -58,21 +64,25 @@ export const elems = [
 
 export const categories = [
   {
+    id: 'alpha',
     name: 'Alpha',
     image: Category1Poster,
     elems,
   },
   {
+    id: 'beta',
     name: 'Beta',
     image: Category2Poster,
     elems,
   },
   {
+    id: 'gamma',
     name: 'Gamma',
     image: Category3Poster,
     elems,
   },
   {
+    id: 'epsilon',
     name: 'Epsilon',
     image: Category4Poster,
     elems,

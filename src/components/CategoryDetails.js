@@ -9,17 +9,17 @@ import './CategoryDetails.css';
 export class CategoryDetails extends Component {
   state = {
     isReturnClicked: false,
-    elementKeyClicked: null,
+    elementIdClicked: null,
   };
 
-  handleClick = (key) => {
-    this.setState({ elementKeyClicked: key });
+  handleClick = (id) => {
+    this.setState({ elementIdClicked: id });
   };
 
   render = () => {
     const { category } = this.props;
     const { name, image, elems } = category || {};
-    const { isReturnClicked, elementKeyClicked } = this.state;
+    const { isReturnClicked, elementIdClicked } = this.state;
 
     return isReturnClicked ? (
       <Categories />
@@ -38,11 +38,11 @@ export class CategoryDetails extends Component {
 
         <span className="categoryDetails">
           <span className="categoryElements">
-            {elems.map(({ name, duration }, key) => (
+            {elems.map(({ id, name, duration }) => (
               <button
-                key={key}
+                key={id}
                 className="categoryElement"
-                onClick={() => this.handleClick(key)}
+                onClick={() => this.handleClick(id)}
               >
                 <span className="categoryElementName">{name}</span>
                 <span className="categoryElementDuration">{duration}</span>
@@ -51,13 +51,13 @@ export class CategoryDetails extends Component {
           </span>
         </span>
 
-        {elementKeyClicked !== null && (
+        {elementIdClicked !== null && (
           <VideoPlayer
             handleClick={this.handleClick}
             category={category}
-            name={elems[elementKeyClicked].name}
-            poster={elems[elementKeyClicked].poster}
-            video={elems[elementKeyClicked].video}
+            name={elems[elementIdClicked].name}
+            poster={elems[elementIdClicked].poster}
+            video={elems[elementIdClicked].video}
           />
         )}
       </Fragment>
