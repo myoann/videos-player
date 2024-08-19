@@ -1,17 +1,17 @@
 .categoryDetails {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    text-align: left;
-    position: absolute;
-    top: 66%;
-    height: 33%;
-    overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  text-align: left;
+  position: absolute;
+  top: 66%;
+  height: 33%;
+  overflow: scroll;
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .returnToCategoriesButton {
@@ -131,19 +131,18 @@
 }
 
 .categoryElements .categoryElement {
-    cursor: pointer;
-    list-style: none;
+  cursor: pointer;
+  list-style: none;
 }
 
 .categoryElements .categoryElement:last-child {
-    border-bottom: 0px;
+  border-bottom: 0px;
 }
 
 .categoryElements .categoryElementDuration {
-    float: right;
-    opacity: 0.75;
+  float: right;
+  opacity: 0.75;
 }
 
 .categoryElements .categoryElementName {
-
 }

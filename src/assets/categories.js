@@ -53,28 +53,28 @@ export const elems = [
     duration: '05:41',
     poster: Elem6Poster,
     video: Elem6Video,
-  }
+  },
 ];
 
 export const categories = [
   {
     name: 'Alpha',
     image: Category1Poster,
-    elems
+    elems,
   },
   {
     name: 'Beta',
     image: Category2Poster,
-    elems
+    elems,
   },
   {
     name: 'Gamma',
     image: Category3Poster,
-    elems
+    elems,
   },
   {
     name: 'Epsilon',
     image: Category4Poster,
-    elems
+    elems,
   },
 ];

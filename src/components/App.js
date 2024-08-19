@@ -1,7 +1,8 @@
 import React from 'react';
 
-import './App.css';
 import Categories from './Categories';
+
+import './App.css';
 
 function App() {
   return (
