@@ -13,7 +13,7 @@ export default class CategoryBubble extends Component {
     const { categoryHovered } = this.state;
 
     return (
-      <div
+      <button
         className={`category fadeIn ${categoryHovered !== null ? (categoryHovered !== categoryKey ? 'inactive' : '') : 'inactive'}`}
         onMouseOver={() => this.onHover(categoryKey)}
         onMouseOut={() => this.onHover()}
@@ -23,13 +23,13 @@ export default class CategoryBubble extends Component {
           <img src={image} alt={`categorie ${name}`} />
         </span>
         <span className="categoryName">{name}</span>
-      </div>
+      </button>
     );
   }
 }
 
 CategoryBubble.propTypes = {
-  categoryKey: PropTypes.string.isRequired,
+  categoryKey: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onSelectCategory: PropTypes.func.isRequired,

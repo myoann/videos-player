@@ -30,7 +30,11 @@
   margin: 0 1rem 2.5rem 1rem;
   width: 10rem;
   transition: all 0.2s ease-in-out;
+  background: transparent;
+  border: none;
+  color: #fff;
 }
+
 .category:hover {
   transform: scale(1.1);
   transition: all 0.2s ease-in-out;
@@ -101,6 +105,7 @@
 }
 
 .categoryName {
+  width: 100%;
   cursor: pointer;
 }
 

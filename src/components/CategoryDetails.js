@@ -27,26 +27,26 @@ export class CategoryDetails extends Component {
       <Fragment>
         <div className="categoryBackground">
           <img src={image} alt="background" />
-          <span
+          <button
             className="returnToCategoriesButton"
             onClick={() => this.setState({ isReturnClicked: !isReturnClicked })}
           >
             &#x2190; Retour
-          </span>
+          </button>
           <span className="categoryTitle">{name}</span>
         </div>
 
         <span className="categoryDetails">
           <span className="categoryElements">
             {elems.map(({ name, duration }, key) => (
-              <div
+              <button
                 key={key}
                 className="categoryElement"
                 onClick={() => this.handleClick(key)}
               >
                 <span className="categoryElementName">{name}</span>
                 <span className="categoryElementDuration">{duration}</span>
-              </div>
+              </button>
             ))}
           </span>
         </span>

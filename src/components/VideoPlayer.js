@@ -23,7 +23,7 @@ export class VideoPlayer extends Component {
         className={`${isVideoToClose ? 'out' : 'videoActivated'} modalContainer`}
       >
         <div className="modalBackground">
-          <div onClick={() => this.handleClickElem()} className="clickMe" />
+          <button onClick={() => this.handleClickElem()} className="clickMe" />
           <video controls autoPlay width="50%" poster={poster}>
             <source src={video} type="video/mp4" />
             Sorry, your browser does not support embedded videos.
