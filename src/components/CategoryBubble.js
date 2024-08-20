@@ -21,7 +21,9 @@ export default class CategoryBubble extends Component {
       <button
         className={`category fadeIn ${hasInactiveClass ? 'inactive' : ''}`}
         onMouseOver={() => this.onHover(categoryId)}
+        onFocus={() => this.onHover(categoryId)}
         onMouseOut={() => this.onHover()}
+        onBlur={() => this.onHover()}
         onClick={() => onSelectCategory(categoryId)}
       >
         <span className="categoryImage">
